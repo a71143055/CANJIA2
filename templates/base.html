@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}CANJIA{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <h1><a href="{{ url_for('home') }}">CANJIA</a></h1>
+    <p>Community for Association & Network in Jeju Industry Association</p>
+
+    <nav class="top-nav">
+      <a href="{{ url_for('about') }}">소개</a>
+      <a href="{{ url_for('profile') }}">프로필 작성</a>
+      <a href="{{ url_for('signup') }}">회원 가입</a>
+      <a href="{{ url_for('login') }}">로그인</a>
+      <a href="{{ url_for('mfa') }}">2차 인증</a>
+    </nav>
+  </header>
+
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

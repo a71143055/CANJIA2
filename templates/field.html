@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}CANJIA | {{ field }}{% endblock %}
+{% block content %}
+<h2>{{ field }} 문서 등록 창</h2>
+<a class="button" href="{{ url_for('new_document', field=field) }}">문서 작성하기</a>
+
+{% if docs %}
+  {% for d in docs %}
+    <article class="doc-card">
+      <h3>{{ d.title }}</h3>
+      <small>작성자: {{ d.author }}</small>
+      <p>{{ d.content }}</p>
+    </article>
+  {% endfor %}
+{% else %}
+  <p>아직 등록된 문서가 없습니다.</p>
+{% endif %}
+{% endblock %}

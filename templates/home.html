@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}CANJIA | 홈{% endblock %}
+{% block content %}
+<section>
+  <h2>제주 산업 발전 및 네트워크 공동체</h2>
+  <p>AGI·ACTF·스포츠·카페 기술 연마를 연결하는 커뮤니티 플랫폼입니다.</p>
+</section>
+
+<section>
+  <h3>분야 구성 바</h3>
+  <div class="field-grid">
+    {% for field in fields %}
+      <a class="field-card" href="{{ url_for('field_page', field=field) }}">{{ field }}</a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

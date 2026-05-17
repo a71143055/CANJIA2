@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}CANJIA | 문서 작성{% endblock %}
+{% block content %}
+<h2>{{ field }} 문서 작성 페이지</h2>
+<form method="post" class="editor-form">
+  <label>작성자
+    <input type="text" name="author" required />
+  </label>
+  <label>제목
+    <input type="text" name="title" required />
+  </label>
+  <label>내용
+    <textarea name="content" rows="10" placeholder="Google Docs처럼 정리해서 작성하세요." required></textarea>
+  </label>
+  <button type="submit">등록</button>
+</form>
+{% endblock %}
